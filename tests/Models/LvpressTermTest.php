@@ -41,6 +41,7 @@ class LvpressTermTest extends TestCase {
   public function testTaxonomyInsert() {
     $taxonomy = new LvpressTermTaxonomy;
     $taxonomy->taxonomy = 'stuff';
+    $taxonomy->description = '';
     $taxonomy->save();
 
     $associate = $this->term->taxonomy()->save($taxonomy);
@@ -55,6 +56,8 @@ class LvpressTermTest extends TestCase {
   public function testTaxonomyEagerSelect() {
     $cat = "category";
     $new_term = new LvpressTerm;
+    $new_term->name = 'somename';
+    $new_term->slug = ucfirst('somename');
     $new_term->save();
 
     $category_count = LvpressTerm::whereHas('taxonomy', function($q) {
