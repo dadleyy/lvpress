@@ -15,9 +15,8 @@ class TestCase extends PHPUnit_Framework_TestCase {
     $sql_config = array(
       'driver' => 'mysql', 
       'host' => '127.0.0.1', 
-      'database' => 'dadleyy_test', 
-      'username' => 'dadleyy_test', 
-      'password' => 'password', 
+      'database' => 'lvpress_test', 
+      'username' => 'travis', 
       'charset'   => 'utf8',
       'collation' => 'utf8_unicode_ci',
       'prefix' => ''
