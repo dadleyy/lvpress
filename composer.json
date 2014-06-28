@@ -16,7 +16,7 @@
       "src/migrations",
       "src/models",
       "src/controllers",
-      "tests/TestCase.php"
+      "test/unit/TestCase.php"
     ],
     "psr-0": {
       "Dadleyy\\Lvpress\\": "src/"

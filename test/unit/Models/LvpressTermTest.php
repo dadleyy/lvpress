@@ -6,24 +6,6 @@ class LvpressTermTest extends TestCase {
 
   private $term;
 
-  public static function setUpBeforeClass() {
-    parent::setUpBeforeClass();
-
-    $default_terms = array('uncategorized', 'project', 'blogpost');
-    foreach($default_terms as $index=>$term) {
-      $wp_term = new LvpressTerm;
-      $wp_term->name = ucfirst($term);
-      $wp_term->slug = $term;
-      $saved = $wp_term->save();
-
-      DB::table('wp_term_taxonomy')->insert(array(
-        'term_id' => $index + 1,
-        'taxonomy' => 'category',
-        'description' => ''
-      ));
-    }
-  }
-
   public function setUp() {
     parent::setUp();
     $this->term = LvpressTerm::find(1);

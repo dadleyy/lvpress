@@ -5,8 +5,25 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Migrations\DatabaseMigrationRepository;
 use Illuminate\Database\Migrations\Migrator;
 use Illuminate\Filesystem\Filesystem;
+use Illuminate\Support\Str;
 
 class TestCase extends PHPUnit_Framework_TestCase {
+
+  protected static function createFixtures($fixture_name, $fixtures) {
+    foreach($fixtures as $fixture) {
+      $f = new $fixture_name($fixture);
+      $f->save();
+    }
+  }
+
+  protected static function loadFixtures() {
+    $system = new Filesystem;
+    foreach($system->files(__DIR__.'/../fixtures') as $file) {
+      $fixture_name = Str::singular(basename($file, '.php'));
+      $fixtures = require $file;
+      static::createFixtures($fixture_name, $fixtures);
+    }
+  }
 
   public static function setUpBeforeClass() {
     parent::setUpBeforeClass();
@@ -34,7 +51,9 @@ class TestCase extends PHPUnit_Framework_TestCase {
 
     $migrator = new Migrator($migration_repo, Model::getConnectionResolver(), new Filesystem);
     $migrator->rollback();
-    $migrator->run(__DIR__.'/../src/migrations');
+    $migrator->run(__DIR__.'/../../src/migrations');
+
+    static::loadFixtures();
   }
 
 }
