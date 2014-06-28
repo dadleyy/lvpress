@@ -13,7 +13,7 @@ class LvpressPost extends Eloquent {
     return $this->hasOne('LvpressUser', 'ID', 'post_author');
   }
 
-  public function terms() {
+  public function taxonomies() {
     return $this->belongsToMany('LvpressTermTaxonomy', 'wp_term_relationships', 'object_id', 'term_taxonomy_id');
   }
 
