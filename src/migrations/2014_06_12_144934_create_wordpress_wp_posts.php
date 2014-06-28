@@ -26,7 +26,7 @@ class CreateWordpressWpPosts extends Migration {
       $table->longText('post_content_filtered')->nullable();
       $table->bigInteger('post_parent')->default(0);
       $table->string('guid', 255);
-      $table->integer('menu_order');
+      $table->integer('menu_order')->default(0);
       $table->string('post_type', 20)->default('post');
       $table->string('post_mime_type', 100)->default('');
       $table->bigInteger('comment_count')->default(0);

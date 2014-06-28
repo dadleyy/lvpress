@@ -10,7 +10,6 @@ class LvpressTerm extends Eloquent {
   public $timestamps = false;
 
   public function taxonomy() {
-    DB::table('wp_terms');
     return $this->hasMany('LvpressTermTaxonomy', 'term_id', 'term_id');
   }
 

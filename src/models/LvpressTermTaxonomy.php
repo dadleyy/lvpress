@@ -9,9 +9,6 @@ class LvpressTermTaxonomy extends Eloquent {
   public $timestamps = false;
   protected $primaryKey = 'term_taxonomy_id';
 
-
-
 }
-
 
 ?>
