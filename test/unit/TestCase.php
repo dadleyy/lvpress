@@ -11,7 +11,8 @@ class TestCase extends PHPUnit_Framework_TestCase {
 
   protected static function createFixtures($fixture_name, $fixtures) {
     foreach($fixtures as $fixture) {
-      $f = new $fixture_name($fixture);
+      $class = "Dadleyy\\Lvpress\\Models\\$fixture_name";
+      $f = new $class($fixture);
       $f->save();
     }
   }

@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+use Dadleyy\Lvpress\Models\LvpressPost;
 
 class LvpressPostTest extends TestCase {
 
