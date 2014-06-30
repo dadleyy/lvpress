@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Database\Query\Builder;
+use Dadleyy\Lvpress\Models\LvpressTerm;
+use Dadleyy\Lvpress\Models\LvpressTermTaxonomy;
 
 class LvpressTermTest extends TestCase {
 

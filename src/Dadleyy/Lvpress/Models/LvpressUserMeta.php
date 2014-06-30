@@ -1,10 +1,10 @@
-<?php
+<?php namespace Dadleyy\Lvpress\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class LvpressTermRelationship extends Eloquent {
+class LvpressUserMeta extends Eloquent {
 
-  protected $table = 'wp_term_relationships';
+  protected $table = 'wp_usermeta';
   protected $guarded = array();
   public $timestamps = false;
 

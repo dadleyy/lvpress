@@ -1,4 +1,4 @@
-<?php
+<?php namespace Dadleyy\Lvpress\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
@@ -10,7 +10,7 @@ class LvpressTerm extends Eloquent {
   public $timestamps = false;
 
   public function taxonomy() {
-    return $this->hasMany('LvpressTermTaxonomy', 'term_id', 'term_id');
+    return $this->hasMany('Dadleyy\Lvpress\Models\LvpressTermTaxonomy', 'term_id', 'term_id');
   }
 
 }

@@ -1,7 +1,9 @@
-<?php
+<?php namespace Dadleyy\Lvpress\Models;
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Str;
+
+use Dadleyy\Lvpress\Models\LvpressTermTaxonomy;
 
 class LvpressPost extends Eloquent {
 
@@ -11,11 +13,11 @@ class LvpressPost extends Eloquent {
   protected $primaryKey = 'ID';
 
   public function author() {
-    return $this->hasOne('LvpressUser', 'ID', 'post_author');
+    return $this->hasOne('Dadleyy\Lvpress\Models\LvpressUser', 'ID', 'post_author');
   }
 
   public function taxonomies() {
-    return $this->belongsToMany('LvpressTermTaxonomy', 'wp_term_relationships', 'object_id', 'term_taxonomy_id');
+    return $this->belongsToMany('Dadleyy\Lvpress\Models\LvpressTermTaxonomy', 'wp_term_relationships', 'object_id', 'term_taxonomy_id');
   }
 
   public function categories() {
