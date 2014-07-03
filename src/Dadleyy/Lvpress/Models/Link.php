@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class LvpressPostMeta extends Eloquent {
+class Link extends Eloquent {
 
-  protected $table = 'wp_postmeta';
+  protected $table = 'wp_links';
   protected $guarded = array();
   public $timestamps = false;
 

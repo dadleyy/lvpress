@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class LvpressUser extends Eloquent {
+class User extends Eloquent {
 
   protected $table = 'wp_users';
   protected $guarded = array();

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class LvpressTerm extends Eloquent {
+class Term extends Eloquent {
 
   protected $table = 'wp_terms';
   protected $guarded = array();
@@ -10,7 +10,7 @@ class LvpressTerm extends Eloquent {
   public $timestamps = false;
 
   public function taxonomy() {
-    return $this->hasMany('Dadleyy\Lvpress\Models\LvpressTermTaxonomy', 'term_id', 'term_id');
+    return $this->hasMany('Dadleyy\Lvpress\Models\TermTaxonomy', 'term_id', 'term_id');
   }
 
 }

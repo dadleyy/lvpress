@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class LvpressTermTaxonomy extends Eloquent {
+class TermTaxonomy extends Eloquent {
   
   protected $table = 'wp_term_taxonomy';
   protected $guarded = array();
@@ -10,11 +10,11 @@ class LvpressTermTaxonomy extends Eloquent {
   protected $primaryKey = 'term_taxonomy_id';
 
   public function term() {
-    return $this->hasOne('Dadleyy\Lvpress\Models\LvpressTerm', 'term_id');
+    return $this->hasOne('Dadleyy\Lvpress\Models\Term', 'term_id');
   }
 
   public function relationships() {
-    return $this->hasMany('Dadleyy\Lvpress\Models\LvpressTermRelationship', 'term_taxonomy_id', 'term_taxonomy_id');
+    return $this->hasMany('Dadleyy\Lvpress\Models\TermRelationship', 'term_taxonomy_id', 'term_taxonomy_id');
   }
 
 }
