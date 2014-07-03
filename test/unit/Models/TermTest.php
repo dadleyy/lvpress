@@ -1,15 +1,15 @@
 <?php
 
-use Dadleyy\Lvpress\Models\LvpressTerm;
-use Dadleyy\Lvpress\Models\LvpressTermTaxonomy;
+use Dadleyy\Lvpress\Models\Term;
+use Dadleyy\Lvpress\Models\TermTaxonomy;
 
-class LvpressTermTest extends TestCase {
+class TermTest extends TestCase {
 
   private $term;
 
   public function setUp() {
     parent::setUp();
-    $this->term = LvpressTerm::find(1);
+    $this->term = Term::find(1);
   }
 
   public function testTermSelect() {
@@ -22,7 +22,7 @@ class LvpressTermTest extends TestCase {
   }
 
   public function testTaxonomyInsert() {
-    $taxonomy = new LvpressTermTaxonomy;
+    $taxonomy = new TermTaxonomy;
     $taxonomy->taxonomy = 'stuff';
     $taxonomy->description = '';
     $taxonomy->save();
@@ -38,16 +38,16 @@ class LvpressTermTest extends TestCase {
 
   public function testTaxonomyEagerSelect() {
     $cat = "category";
-    $new_term = new LvpressTerm;
+    $new_term = new Term;
     $new_term->name = 'somename';
     $new_term->slug = ucfirst('somename');
     $new_term->save();
 
-    $category_count = LvpressTerm::whereHas('taxonomy', function($q) {
+    $category_count = Term::whereHas('taxonomy', function($q) {
       $q->where('taxonomy', 'category');
     })->count();
 
-    $term_count = count(LvpressTerm::all());
+    $term_count = count(Term::all());
     $this->assertTrue($term_count !== $category_count);
 
     $new_term->delete();
@@ -55,7 +55,7 @@ class LvpressTermTest extends TestCase {
 
   public function tearDown() {
     parent::tearDown();
-    $taxonomy = LvpressTermTaxonomy::where('taxonomy', '=', 'stuff')->first();
+    $taxonomy = TermTaxonomy::where('taxonomy', '=', 'stuff')->first();
     if($taxonomy !== null)
       $taxonomy->delete();
   }

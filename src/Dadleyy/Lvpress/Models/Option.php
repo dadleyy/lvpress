@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class LvpressLink extends Eloquent {
+class Option extends Eloquent {
 
-  protected $table = 'wp_links';
+  protected $table = 'wp_options';
   protected $guarded = array();
   public $timestamps = false;
 

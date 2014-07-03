@@ -28,18 +28,10 @@ class TestCase extends PHPUnit_Framework_TestCase {
 
   public static function setUpBeforeClass() {
     parent::setUpBeforeClass();
+    $config = require __DIR__.'/../config.php';
 
     $capsule = new Manager;
-    $sql_config = array(
-      'driver' => 'mysql', 
-      'host' => '127.0.0.1', 
-      'database' => 'lvpress_test', 
-      'username' => 'travis', 
-      'charset'   => 'utf8',
-      'collation' => 'utf8_unicode_ci',
-      'prefix' => ''
-    );
-    $capsule->addConnection($sql_config);
+    $capsule->addConnection($config);
     $capsule->bootEloquent();
   
     Schema::setConnection($capsule->getConnection('default'));

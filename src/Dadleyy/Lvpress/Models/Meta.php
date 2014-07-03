@@ -2,9 +2,9 @@
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 
-class LvpressOption extends Eloquent {
+class Meta extends Eloquent {
 
-  protected $table = 'wp_options';
+  protected $table = 'wp_usermeta';
   protected $guarded = array();
   public $timestamps = false;
 
